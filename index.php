@@ -187,7 +187,7 @@
 
 echo "<div class='bootstrap-tagsinput' style='width:40%; float:right;'>   
 
-</span> <span class='tag label label-info'>{$row["course_id"]}<span data-role='remove'></span>
+</span> <span class='tag label label-info'>{$row["course_tag"]}<span data-role='remove'></span>
 </span> <input type='text' size='1' style='width: 3em !important;'></div> 
           </div>
           <br>
