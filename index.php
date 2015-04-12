@@ -117,12 +117,26 @@
           <div placeholder="Type your question here..." class="form-control" style="height:auto; width:90%; resize:none; margin-bottom:.5em; border-radius:3px; border:0; background-color:#ecf0f1; padding-left:0.5;">
           
              <span><b>Coursetags</b></span><br>
+                             <?php
+                    include_once("courses.php");
+                    $obj = new courses();
+                    $obj->get_all_courses();
+                    $row=$obj->fetch();
+
+                    while($row){
+                        echo "<a href='course_index.php?id={$row["course_id"]}'>{$row["course_tag"]}</a><br>";
+                        $row=$obj->fetch();
+                    }
+
+?>
+<!--
               <a href="course_index.php">HCI</a><br>
               <a href="course_index.php">Web Tech</a><br>
               <a href="course_index.php">Design</a><br>
               <a href="course_index.php">Leadership</a><br>
               <a href="course_index.php">Algorithms</a><br>
               <a href="course_index.php">Data Mining</a>
+-->
               
            </div> 
           
@@ -132,7 +146,17 @@
       
       <h6>Compose:</h6>
 <!--          <input type="text" placeholder="..." class="form-control" />-->
-      <textarea placeholder="Type your question here..." class="form-control" style="height:125px; resize:none; margin-bottom:.5em; border-radius:2px;"></textarea>            <button class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em;" >Ask</button>
+     <form action="index.php" method="POST">
+      <textarea placeholder="Type your question here..." class="form-control" style="height:125px; resize:none; margin-bottom:.5em; border-radius:2px;" name="qn"></textarea>            <input type="submit" onclick="" class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em;" value="Ask"></input></form>
+<?php 
+			if (isset($_REQUEST["qn"]) ) {
+                $qn_text=$_REQUEST['qn'];
+                include_once("questions.php");
+                $obj = new questions();
+                $cid = 1; $uid=2;
+                $obj->add_question($qn_text, $cid, $uid);
+            }
+          ?>
 
 <div class="bootstrap-tagsinput" style="width:40%; float:right;">   <span class="tag label label-info">hci<span data-role="remove"></span></span> <span class="tag label label-info">webtech<span data-role="remove"></span></span> <input type="text" placeholder="" size="1" style="width: 3em !important;"></div> 
       <br>

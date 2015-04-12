@@ -8,8 +8,8 @@
 include_once ("adb.php");
 class courses extends adb{
 
-    function add($name) {
-        $str_query = " ";
+    function get_all_courses() {
+        $str_query = "Select course_id, course_tag from hciproject_courses";
         return $this->query($str_query);
     }
     
