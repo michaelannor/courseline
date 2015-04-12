@@ -31,7 +31,7 @@
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
       <span class="sr-only">Toggle navigation</span>
     </button>
-    <a class="navbar-brand" href="index.html">Courseline</a>
+    <a class="navbar-brand" href="index.php">Courseline</a>
   </div>
   <div class="collapse navbar-collapse navbar-right" id="navbar-collapse-01">
       
@@ -73,12 +73,7 @@
 <!--  <div class="col-md-9"  >-->
 
           
-          
-          
-          
-          
-          
-          
+
           
           
           
@@ -117,39 +112,28 @@
                         <i class="fa fa-behance"></i>
                     </a>
                 </div></div>
-          
-           <br>
+          <br>
           <div placeholder="Type your question here..." class="form-control" style="height:auto; width:90%; resize:none; margin-bottom:.5em; border-radius:3px; border:0; background-color:#ecf0f1; padding-left:0.5;">
           
              <span><b>Coursetags</b></span><br>
-              <a href="course.html">HCI</a><br>
-              <a href="course.html">Web Tech</a><br>
-              <a href="course.html">Design</a><br>
-              <a href="course.html">Leadership</a><br>
-              <a href="course.html">Algorithms</a><br>
-              <a href="course.html">Data Mining</a>
+              <a href="course_index.php">HCI</a><br>
+              <a href="course_index.php">Web Tech</a><br>
+              <a href="course_index.php">Design</a><br>
+              <a href="course_index.php">Leadership</a><br>
+              <a href="course_index.php">Algorithms</a><br>
+              <a href="course_index.php">Data Mining</a>
               
            </div> 
           
           </div>
 
   <div class="col-md-7">
-     
-               <div>
-                <div placeholder="Type your question here..." class="form-control" style="height:auto; padding: 0 0; resize:none; margin-bottom:.5em; border-radius:2px; border:0;"><h4>What is affordance? And how can it apply to the design of user interfaces?</h4> </div>            
-<!--                <button class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em;" >More</button>-->
-
-<div class="bootstrap-tagsinput" style="width:40%; float:right;">   <span class="tag label label-info">hci<span data-role="remove"></span></span> <span class="tag label label-info">webtech<span data-role="remove"></span></span> <input type="text" placeholder="" size="1" style="width: 3em !important;"></div> 
-          </div>
-      <br>
-      <h6>Answer:</h6>
-<!--          <input type="text" placeholder="..." class="form-control" />-->
-      <textarea placeholder="Type your question here..." class="form-control" style="height:125px; resize:none; margin-bottom:.5em; border-radius:2px;"></textarea>            <button class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em;" >Answer</button>
-    <br>
-      <br>
-<!--      <br>-->
-      <br>
       
+      <h4>Human Computer Interactions (HCI)</h4>
+
+      <br>
+            <h6>Feed</h6>
+
 <!--            <h7>Questions:</h7>-->
       <div id="timeline">
 <!--
@@ -158,7 +142,7 @@
 <br>
 -->
           <div>
-                <div placeholder="Type your question here..." class="form-control" style="height:auto; resize:none; margin-bottom:.5em; border-radius:2px; border:0;">What is affordance? And how can it apply to the design of user interfaces? </div>            <button class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em; background-color:crimson;" >Dislike</button><button class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em; " >Like</button>
+                <div placeholder="Type your question here..." class="form-control" style="height:auto; resize:none; margin-bottom:.5em; border-radius:2px; border:0;">What is affordance? And how can it apply to the design of user interfaces? </div>            <button onclick="window.location.href='question_index.php'" class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em;" >More</button>
 
           </div>
           <br>
@@ -166,7 +150,7 @@
           <div style="border-bottom:2px; border-bottom-style:solid; border-bottom-color:#bdc3c7;"></div>
 <br>
           <div>
-                <div placeholder="Type your question here..." class="form-control" style="height:auto; resize:none; margin-bottom:.5em; border-radius:2px; border:0;">How can efficiency of an app be calculated? Is the keystroke model any good? What other choices do I have?</div>            <button class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em; background-color:crimson;" >Dislike</button><button class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em; " >Like</button>
+                <div placeholder="Type your question here..." class="form-control" style="height:auto; resize:none; margin-bottom:.5em; border-radius:2px; border:0;">How can efficiency of an app be calculated? Is the keystroke model any good? What other choices do I have?</div>            <button onclick="window.location.href='question_index.php'" class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em;" >More</button>
 
           </div>
           <br>
@@ -174,27 +158,21 @@
           <div style="border-bottom:2px; border-bottom-style:solid; border-bottom-color:#bdc3c7;"></div>
 <br>
           <div>
-                <div placeholder="Type your question here..." class="form-control" style="height:auto; resize:none; margin-bottom:.5em; border-radius:2px; border:0;">What should I consider when designing an HCI experiment? I'll really appreciate an early response because of tomorrow's quiz. Thanks</div>            <button class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em; background-color:crimson;" >Dislike</button><button class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em; " >Like</button>
+                <div placeholder="Type your question here..." class="form-control" style="height:auto; resize:none; margin-bottom:.5em; border-radius:2px; border:0;">What should I consider when designing an HCI experiment? I'll really appreciate an early response because of tomorrow's quiz. Thanks</div>            <button onclick="window.location.href='question_index.php'" class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em;" >More</button>
 
           </div>
           <br><br>
           <div style="border-bottom:2px; border-bottom-style:solid; border-bottom-color:#bdc3c7;"></div>
 <br>
           <div>
-                <div placeholder="Type your question here..." class="form-control" style="height:auto; resize:none; margin-bottom:.5em; border-radius:2px; border:0;">How can I use jquery to make my web app more interactive and responsive? How does Angular JS compare. PS. I have experience with raw Javascript. All these frameworks are rather new to me.</div>            <button class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em; background-color:crimson;" >Dislike</button><button class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em; " >Like</button>
+                <div placeholder="Type your question here..." class="form-control" style="height:auto; resize:none; margin-bottom:.5em; border-radius:2px; border:0;">How can I use jquery to make my web app more interactive and responsive? How does Angular JS compare. PS. I have experience with raw Javascript. All these frameworks are rather new to me.</div>            <button onclick="window.location.href='question_indec.php'" class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em;" >More</button>
 
           </div>
               <br><br>
           <div style="border-bottom:2px; border-bottom-style:solid; border-bottom-color:#bdc3c7;"></div>
 <br>
-
-  
-
-
 <!--          end of timeline div-->
           </div>
-          
-       
       
 <!--      <span style="float:right; margin-right:.5em;"><h7 style="margin-top:10em;">Coursetag:</h7></span>-->
 
