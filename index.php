@@ -147,44 +147,34 @@
           <div style="border-bottom:2px; border-bottom-style:solid; border-bottom-color:#bdc3c7;"></div>
 <br>
 -->
-          <div>
-                <div class="form-control" style="height:auto; resize:none; margin-bottom:.5em; border-radius:2px; border:0;">
+          
+                <?php
+                    include_once("questions.php");
+                    $obj = new questions();
+                    $obj->get_all_questions();
+                    $row=$obj->fetch();
+                    
+                    while ($row){
+                        echo "<div>
+                <div class='form-control' style='height:auto; resize:none; margin-bottom:.5em; border-radius:2px; border:0;'>";
+                        
+	echo $row["question"];
+                    echo "</div>            <button onclick='window.location.href='question_index.php'' class='btn btn-embossed btn-primary' style='float:right; width:7em; margin-left:.5em;' >More</button>";
+
+echo "<div class='bootstrap-tagsinput' style='width:40%; float:right;'>   
+
+</span> <span class='tag label label-info'>{$row["course_id"]}<span data-role='remove'></span>
+</span> <input type='text' size='1' style='width: 3em !important;'></div> 
+          </div>
+          <br>
+          <br>
+          <div style='border-bottom:2px; border-bottom-style:solid; border-bottom-color:#bdc3c7;'></div>
+<br>";
+                                        $row=$obj->fetch();
+}
+?>
                 
                 
-                
-                What is affordance? And how can it apply to the design of user interfaces? </div>            <button onclick="window.location.href='question_index.php'" class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em;" >More</button>
-
-<div class="bootstrap-tagsinput" style="width:40%; float:right;">   <span class="tag label label-info">hci<span data-role="remove"></span></span> <span class="tag label label-info">webtech<span data-role="remove"></span></span> <input type="text" placeholder="" size="1" style="width: 3em !important;"></div> 
-          </div>
-          <br>
-          <br>
-          <div style="border-bottom:2px; border-bottom-style:solid; border-bottom-color:#bdc3c7;"></div>
-<br>
-          <div>
-                <div placeholder="Type your question here..." class="form-control" style="height:auto; resize:none; margin-bottom:.5em; border-radius:2px; border:0;">How can efficiency of an app be calculated? Is the keystroke model any good? What other choices do I have?</div>            <button onclick="window.location.href='question_index.php'" class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em;" >More</button>
-
-<div class="bootstrap-tagsinput" style="width:40%; float:right;">   <span class="tag label label-info">hci<span data-role="remove"></span></span> <span class="tag label label-info">webtech<span data-role="remove"></span></span> <input type="text" placeholder="" size="1" style="width: 3em !important;"></div> 
-          </div>
-          <br>
-          <br>
-          <div style="border-bottom:2px; border-bottom-style:solid; border-bottom-color:#bdc3c7;"></div>
-<br>
-          <div>
-                <div placeholder="Type your question here..." class="form-control" style="height:auto; resize:none; margin-bottom:.5em; border-radius:2px; border:0;">What should I consider when designing an HCI experiment? I'll really appreciate an early response because of tomorrow's quiz. Thanks</div>            <button onclick="window.location.href='question_index.php'" class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em;" >More</button>
-
-<div class="bootstrap-tagsinput" style="width:40%; float:right;">   <span class="tag label label-info">hci<span data-role="remove"></span></span> <span class="tag label label-info">webtech<span data-role="remove"></span></span> <input type="text" placeholder="" size="1" style="width: 3em !important;"></div> 
-          </div>
-          <br><br>
-          <div style="border-bottom:2px; border-bottom-style:solid; border-bottom-color:#bdc3c7;"></div>
-<br>
-          <div>
-                <div placeholder="Type your question here..." class="form-control" style="height:auto; resize:none; margin-bottom:.5em; border-radius:2px; border:0;">How can I use jquery to make my web app more interactive and responsive? How does Angular JS compare. PS. I have experience with raw Javascript. All these frameworks are rather new to me.</div>            <button onclick="window.location.href='question_index.php'" class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em;" >More</button>
-
-<div class="bootstrap-tagsinput" style="width:40%; float:right;">   <span class="tag label label-info">hci<span data-role="remove"></span></span> <span class="tag label label-info">webtech<span data-role="remove"></span></span> <input type="text" placeholder="" size="1" style="width: 3em !important;"></div> 
-          </div>
-              <br><br>
-          <div style="border-bottom:2px; border-bottom-style:solid; border-bottom-color:#bdc3c7;"></div>
-<br>
 <!--          end of timeline div-->
           </div>
       
