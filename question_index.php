@@ -119,15 +119,22 @@
                 </div></div>
           
            <br>
-          <div placeholder="Type your question here..." class="form-control" style="height:auto; width:90%; resize:none; margin-bottom:.5em; border-radius:3px; border:0; background-color:#ecf0f1; padding-left:0.5;">
+                  <div class="form-control" style="height:auto; width:90%; resize:none; margin-bottom:.5em; border-radius:3px; border:0; background-color:#ecf0f1; padding-left:0.5;">
           
              <span><b>Coursetags</b></span><br>
-              <a href="course_index.php">HCI</a><br>
-              <a href="course_index.php">Web Tech</a><br>
-              <a href="course_index.php">Design</a><br>
-              <a href="course_index.php">Leadership</a><br>
-              <a href="course_index.php">Algorithms</a><br>
-              <a href="course_index.php">Data Mining</a>
+                             <?php
+                    include_once("courses.php");
+                    $obj = new courses();
+                    $obj->get_all_courses();
+                    $row=$obj->fetch();
+
+                    while($row){
+                        echo "<a href='course_index.php?id={$row["course_id"]}'>{$row["course_tag"]}</a><br>";
+                        $row=$obj->fetch();
+                    }
+
+?>
+
               
            </div> 
           
