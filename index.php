@@ -186,7 +186,10 @@
                 <div class='form-control' style='height:auto; resize:none; margin-bottom:.5em; border-radius:2px; border:0;'>";
                         
 	echo $row["question"];
-                    echo "</div>            <button onclick='window.location.href='question_index.php'' class='btn btn-embossed btn-primary' style='float:right; width:7em; margin-left:.5em;' >More</button>";
+                    echo "</div>";
+                        echo '<button onclick="window.location.href='.
+                            '\'question_index.php\''.
+                            '" class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em;">More</button>';
 
 echo "<div class='bootstrap-tagsinput' style='width:40%; float:right;'>   
 
