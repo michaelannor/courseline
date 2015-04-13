@@ -112,6 +112,8 @@
                         <i class="fa fa-behance"></i>
                     </a>
                 </div></div>
+                
+                
           
            <br>
           <div class="form-control" style="height:auto; width:90%; resize:none; margin-bottom:.5em; border-radius:3px; border:0; background-color:#ecf0f1; padding-left:0.5;">
@@ -120,23 +122,22 @@
                              <?php
                     include_once("courses.php");
                     $obj = new courses();
+                    $course_array;
+//                    $i=0;
                     $obj->get_all_courses();
                     $row=$obj->fetch();
 
                     while($row){
                         echo "<a href='course_index.php?id={$row["course_id"]}'>{$row["course_tag"]}</a><br>";
+                        $course_array[$row["course_id"]] = $row["course_tag"];
                         $row=$obj->fetch();
+//                        $i++;
                     }
-
+//for ($i=0;$i<count($course_array);$i++){
+//print_r($course_array);
+//}
 ?>
-<!--
-              <a href="course_index.php">HCI</a><br>
-              <a href="course_index.php">Web Tech</a><br>
-              <a href="course_index.php">Design</a><br>
-              <a href="course_index.php">Leadership</a><br>
-              <a href="course_index.php">Algorithms</a><br>
-              <a href="course_index.php">Data Mining</a>
--->
+
               
            </div> 
           
@@ -150,15 +151,27 @@
       <textarea placeholder="Type your question here..." class="form-control" style="height:125px; resize:none; margin-bottom:.5em; border-radius:2px;" name="qn"></textarea>            <input type="submit" onclick="" class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em;" value="Ask"></input>
 
 
-<div class="bootstrap-tagsinput" style="width:40%; float:right;">   <span class="tag label label-info">hci<span data-role="remove"></span></span> <span class="tag label label-info">webtech<span data-role="remove"></span></span> <input type="text" name="ct" placeholder="" size="1" style="width: 3em !important;"></div> </form>
+ <select name="ct" data-toggle="select" class="form-control select select-default mrs mbm" style="float:right;">
+       <option value='0'>Select a Coursetag</option>
+            <?php
+for ($i=1;$i<=count($course_array);$i++){
+            echo "<option value='$i'>$course_array[$i]</option>";
+}
+        ?>
+
+      </select>    
+      </form>
      <?php 
-			if (isset($_REQUEST["qn"]) ) {
+			if (isset($_REQUEST["ct"]) ) {
                 if ($_REQUEST["qn"]!==""){
+                    if (!$_REQUEST["ct"]==0){
                 $qn_text=$_REQUEST['qn'];
+                        $cid = $_REQUEST["ct"];
                 include_once("questions.php");
                 $obj = new questions();
-                $cid = 1; $uid=2;
+                $uid=4;
                 $obj->add_question($qn_text, $cid, $uid);
+                    }
                 }
             }
           ?>
@@ -191,10 +204,10 @@
                             '\'question_index.php\''.
                             '" class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em;">More</button>';
 
-echo "<div class='bootstrap-tagsinput' style='width:40%; float:right;'>   
+echo "<div class='bootstrap-tagsinput' style='width:20%; float:right;'>   
 
-</span> <span class='tag label label-info'>{$row["course_tag"]}<span data-role='remove'></span>
-</span> <input type='text' size='1' style='width: 3em !important;'></div> 
+</span> <span class='tag label label-info'>{$row["course_tag"]}
+</span> </div> 
           </div>
           <br>
           <br>
@@ -220,7 +233,21 @@ echo "<div class='bootstrap-tagsinput' style='width:40%; float:right;'>
 <!--                      <div class="col-md-2"></div>-->
           </div>
       
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="dist/js/vendor/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="dist/js/flat-ui.min.js"></script>
 
+    <script src="assets/js/application.js"></script>
+
+    <script>
+      $(document).ready(function(){
+        $('select[name="inverse-dropdown"], select[name="inverse-dropdown-optgroup"], select[name="inverse-dropdown-disabled"]').select2({dropdownCssClass: 'select-inverse-dropdown'});
+
+        $('select[name="searchfield"]').select2({dropdownCssClass: 'show-select-search'});
+        $('select[name="inverse-dropdown-searchfield"]').select2({dropdownCssClass: 'select-inverse-dropdown show-select-search'});
+      });
+    </script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
