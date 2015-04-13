@@ -147,18 +147,21 @@
       <h6>Compose:</h6>
 <!--          <input type="text" placeholder="..." class="form-control" />-->
      <form action="index.php" method="POST">
-      <textarea placeholder="Type your question here..." class="form-control" style="height:125px; resize:none; margin-bottom:.5em; border-radius:2px;" name="qn"></textarea>            <input type="submit" onclick="" class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em;" value="Ask"></input></form>
-<?php 
+      <textarea placeholder="Type your question here..." class="form-control" style="height:125px; resize:none; margin-bottom:.5em; border-radius:2px;" name="qn"></textarea>            <input type="submit" onclick="" class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em;" value="Ask"></input>
+
+
+<div class="bootstrap-tagsinput" style="width:40%; float:right;">   <span class="tag label label-info">hci<span data-role="remove"></span></span> <span class="tag label label-info">webtech<span data-role="remove"></span></span> <input type="text" name="ct" placeholder="" size="1" style="width: 3em !important;"></div> </form>
+     <?php 
 			if (isset($_REQUEST["qn"]) ) {
+                if ($_REQUEST["qn"]!==""){
                 $qn_text=$_REQUEST['qn'];
                 include_once("questions.php");
                 $obj = new questions();
                 $cid = 1; $uid=2;
                 $obj->add_question($qn_text, $cid, $uid);
+                }
             }
           ?>
-
-<div class="bootstrap-tagsinput" style="width:40%; float:right;">   <span class="tag label label-info">hci<span data-role="remove"></span></span> <span class="tag label label-info">webtech<span data-role="remove"></span></span> <input type="text" placeholder="" size="1" style="width: 3em !important;"></div> 
       <br>
       <br>
       <br>
