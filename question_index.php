@@ -179,8 +179,28 @@ if (isset($_REQUEST["id"])){
           </div>
       <br>
       <h6>Answer:</h6>
+      <form action="question_index.php?id=<?php echo $id; ?>" method="POST">
 <!--          <input type="text" placeholder="..." class="form-control" />-->
-      <textarea placeholder="Type your question here..." class="form-control" style="height:125px; resize:none; margin-bottom:.5em; border-radius:2px;"></textarea>            <button class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em;" >Answer</button>
+      <textarea placeholder="Type your question here..." class="form-control" name="rs" style="height:125px; resize:none; margin-bottom:.5em; border-radius:2px;"></textarea>            <button class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em;" >Answer</button></form>
+          
+          
+           <?php 
+			if (isset($_REQUEST["id"]) ) {
+                			if (isset($_REQUEST["rs"]) ) {
+
+                if ($_REQUEST["rs"]!==""){
+//                    if (!$_REQUEST["ct"]==0){
+                $rs = $_REQUEST["rs"];
+                $qid = $_REQUEST["id"];
+//                        $cid = $_REQUEST["ct"];
+                include_once("responses.php");
+                $obj = new responses();
+                $uid=4;
+                $obj->add_response($rs, $qid, $uid);
+                    }
+                }
+            }
+          ?>
     <br>
       <br>
 <!--      <br>-->
@@ -194,37 +214,37 @@ if (isset($_REQUEST["id"])){
 <br>
 -->
           <div>
-                <div placeholder="Type your question here..." class="form-control" style="height:auto; resize:none; margin-bottom:.5em; border-radius:2px; border:0;">What is affordance? And how can it apply to the design of user interfaces? </div>            <button class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em; background-color:crimson;" >Dislike</button><button class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em; " >Like</button>
+               
+               <?php
+                    if (isset($_REQUEST["id"])){
+                        $id = $_REQUEST["id"];
+                include_once("responses.php");
+                    $obj = new responses();
+                    $obj->get_all_questions_by_question($id);
+                    $row=$obj->fetch($id);
 
-          </div>
+                        while ($row){
+                        echo '<div placeholder="Type your question here..." class="form-control" style="height:auto; resize:none; margin-bottom:.5em; border-radius:2px; border:0;">';
+                    echo $row['response'];
+                        
+                        echo '</div>            <button class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em; background-color:crimson;" >Dislike</button><button class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em; " >Like</button>';
+                        
+                        echo '  <div>
           <br>
           <br>
           <div style="border-bottom:2px; border-bottom-style:solid; border-bottom-color:#bdc3c7;"></div>
-<br>
-          <div>
-                <div placeholder="Type your question here..." class="form-control" style="height:auto; resize:none; margin-bottom:.5em; border-radius:2px; border:0;">How can efficiency of an app be calculated? Is the keystroke model any good? What other choices do I have?</div>            <button class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em; background-color:crimson;" >Dislike</button><button class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em; " >Like</button>
+<br> ';
+                                            $row=$obj->fetch($id);
+//                            print_r($row);
+
+                        }
+                    }
+              ?>
+               
+
+        
 
           </div>
-          <br>
-          <br>
-          <div style="border-bottom:2px; border-bottom-style:solid; border-bottom-color:#bdc3c7;"></div>
-<br>
-          <div>
-                <div placeholder="Type your question here..." class="form-control" style="height:auto; resize:none; margin-bottom:.5em; border-radius:2px; border:0;">What should I consider when designing an HCI experiment? I'll really appreciate an early response because of tomorrow's quiz. Thanks</div>            <button class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em; background-color:crimson;" >Dislike</button><button class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em; " >Like</button>
-
-          </div>
-          <br><br>
-          <div style="border-bottom:2px; border-bottom-style:solid; border-bottom-color:#bdc3c7;"></div>
-<br>
-          <div>
-                <div placeholder="Type your question here..." class="form-control" style="height:auto; resize:none; margin-bottom:.5em; border-radius:2px; border:0;">How can I use jquery to make my web app more interactive and responsive? How does Angular JS compare. PS. I have experience with raw Javascript. All these frameworks are rather new to me.</div>            <button class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em; background-color:crimson;" >Dislike</button><button class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em; " >Like</button>
-
-          </div>
-              <br><br>
-          <div style="border-bottom:2px; border-bottom-style:solid; border-bottom-color:#bdc3c7;"></div>
-<br>
-
-  
 
 
 <!--          end of timeline div-->
@@ -244,7 +264,7 @@ if (isset($_REQUEST["id"])){
 <!--                      <div class="col-md-2"></div>-->
           </div>
       
-
+      
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
