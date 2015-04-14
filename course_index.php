@@ -135,48 +135,57 @@
 
   <div class="col-md-7">
       
-      <h4>Human Computer Interactions (HCI)</h4>
+      <h4>
+      <?php
+
+             require_once("courses.php");
+        $id = $_REQUEST["id"];
+        $obj = new courses();
+        $obj->get_courses_by_id($id);
+        while($row = $obj->fetch()){
+            echo $row['course_name'];
+        }
+        ?>
+      </h4>
 
       <br>
             <h6>Feed</h6>
 
 <!--            <h7>Questions:</h7>-->
       <div id="timeline">
+      
+      <?php
+        require_once("questions.php");
+        $id = $_REQUEST["id"];
+        $obj = new questions();
+        $obj->get_course_questions($id);
+        while($row = $obj->fetch()){
+            $course_name = $row['course_name'];
+                                    $qid = $row["question_id"];
+
+        echo "<div>
+            <div placeholder='Type your question here...' class='form-control' style='height:auto; resize:none; margin-bottom:.5em; border-radius:2px; border:0;'>{$row['question']}</div>";            
+            
+echo '<button onclick="window.location.href='.
+                            '\'question_index.php?id='.$qid.'\''.
+                            '" class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em;">More</button>';            
+            
+          echo "</div>
+        <br>
+          <br>
+          <div style='border-bottom:2px; border-bottom-style:solid; border-bottom-color:#bdc3c7;'></div>
+<br>
+          ";
+        }
+    ?>
+      
+      
 <!--
            <br>
           <div style="border-bottom:2px; border-bottom-style:solid; border-bottom-color:#bdc3c7;"></div>
 <br>
 -->
-          <div>
-                <div placeholder="Type your question here..." class="form-control" style="height:auto; resize:none; margin-bottom:.5em; border-radius:2px; border:0;">What is affordance? And how can it apply to the design of user interfaces? </div>            <button onclick="window.location.href='question_index.php'" class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em;" >More</button>
-
-          </div>
-          <br>
-          <br>
-          <div style="border-bottom:2px; border-bottom-style:solid; border-bottom-color:#bdc3c7;"></div>
-<br>
-          <div>
-                <div placeholder="Type your question here..." class="form-control" style="height:auto; resize:none; margin-bottom:.5em; border-radius:2px; border:0;">How can efficiency of an app be calculated? Is the keystroke model any good? What other choices do I have?</div>            <button onclick="window.location.href='question_index.php'" class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em;" >More</button>
-
-          </div>
-          <br>
-          <br>
-          <div style="border-bottom:2px; border-bottom-style:solid; border-bottom-color:#bdc3c7;"></div>
-<br>
-          <div>
-                <div placeholder="Type your question here..." class="form-control" style="height:auto; resize:none; margin-bottom:.5em; border-radius:2px; border:0;">What should I consider when designing an HCI experiment? I'll really appreciate an early response because of tomorrow's quiz. Thanks</div>            <button onclick="window.location.href='question_index.php'" class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em;" >More</button>
-
-          </div>
-          <br><br>
-          <div style="border-bottom:2px; border-bottom-style:solid; border-bottom-color:#bdc3c7;"></div>
-<br>
-          <div>
-                <div placeholder="Type your question here..." class="form-control" style="height:auto; resize:none; margin-bottom:.5em; border-radius:2px; border:0;">How can I use jquery to make my web app more interactive and responsive? How does Angular JS compare. PS. I have experience with raw Javascript. All these frameworks are rather new to me.</div>            <button onclick="window.location.href='question_indec.php'" class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em;" >More</button>
-
-          </div>
-              <br><br>
-          <div style="border-bottom:2px; border-bottom-style:solid; border-bottom-color:#bdc3c7;"></div>
-<br>
+    
 <!--          end of timeline div-->
           </div>
       

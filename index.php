@@ -200,8 +200,9 @@ for ($i=1;$i<=count($course_array);$i++){
                         
 	echo $row["question"];
                     echo "</div>";
+                        $qid = $row["question_id"];
                         echo '<button onclick="window.location.href='.
-                            '\'question_index.php\''.
+                            '\'question_index.php?id='.$qid.'\''.
                             '" class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em;">More</button>';
 
 echo "<div class='bootstrap-tagsinput' style='width:20%; float:right;'>   

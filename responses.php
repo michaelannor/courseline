@@ -13,6 +13,10 @@ class responses extends adb{
         return $this->query($str_query);
     }
     
+        function get_all_questions_by_question($id) {
+        $str_query = "Select response_id, response, likes, dislikes, user_id from hciproject_responses where question_id = $id ORDER BY response_id DESC";
+        return $this->query($str_query);
+    }
 
 
    

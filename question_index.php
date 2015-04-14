@@ -143,10 +143,39 @@
   <div class="col-md-7">
      
                <div>
-                <div placeholder="Type your question here..." class="form-control" style="height:auto; padding: 0 0; resize:none; margin-bottom:.5em; border-radius:2px; border:0;"><h4>What is affordance? And how can it apply to the design of user interfaces?</h4> </div>            
+                <div placeholder="Type your question here..." class="form-control" style="height:auto; padding: 0 0; resize:none; margin-bottom:.5em; border-radius:2px; border:0;">
+                
+                
+                
+                <h4>
+                
+             <?php
+if (isset($_REQUEST["id"])){
+                        $id = $_REQUEST["id"];
+                include_once("questions.php");
+                    $obj = new questions();
+                    $obj->get_question($id);
+                    $row=$obj->fetch($id);
+
+                    echo $row['question'];
+    
+    
+}
+            ?>
+                
+                </h4> </div>            
 <!--                <button class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em;" >More</button>-->
 
-<div class="bootstrap-tagsinput" style="width:40%; float:right;">   <span class="tag label label-info">hci<span data-role="remove"></span></span> <span class="tag label label-info">webtech<span data-role="remove"></span></span> <input type="text" placeholder="" size="1" style="width: 3em !important;"></div> 
+<div class="bootstrap-tagsinput" style="width:40%; float:right;">   <span class="tag label label-info">
+         <?php
+         
+           echo "
+
+{$row["course_tag"]}
+";
+         ?>
+         
+         </span> </div> 
           </div>
       <br>
       <h6>Answer:</h6>
