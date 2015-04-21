@@ -68,6 +68,13 @@
   </div><!-- /.navbar-collapse -->
 </nav><!-- /navbar -->
       
+<!--
+      <div id="status" class="row" style="margin-left:1000px; margin-right:auto;">
+          
+          
+      </div>
+      
+-->
       <div class="row" style="margin-left:auto; margin-right:auto;">
 
 <!--  <div class="col-md-9"  >-->

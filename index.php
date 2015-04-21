@@ -23,6 +23,21 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+            <script src="jquery-2.1.3.js"></script>
+            <link href="toastr.css" rel="stylesheet"/>
+<script src="toastr.js"></script>
+   
+    <script>
+	
+        function cautionDiv(){
+            toastr.info('Are you the 6 fingered man?');
+//        $("#divStatus").append("<div>error while getting description</div>");
+//		$("#divStatus").append("realer");
+//        alert("dfg");
+	}
+	</script>
+    
+    
   </head>
   <body>
       
@@ -69,6 +84,11 @@
 </nav><!-- /navbar -->
       
       <div class="row" style="margin-left:auto; margin-right:auto;">
+      
+        <div id="divStatus" class="row" style="margin-left:1000px; margin-right:auto;">
+          
+          
+      </div>
 
 <!--  <div class="col-md-9"  >-->
 
@@ -90,7 +110,7 @@
                 </div>
                 <div class="info">
                     <div class="title">
-                        <a href="#">Michael Annor</a>
+                        <a href="#" onclick=cautionDiv()>Michael Annor</a>
                     </div>
 <!--                    <div class="desc">Michael Annor</div>-->
                     <div class="desc">Computer Science</div>
@@ -148,7 +168,7 @@
       <h6>Compose:</h6>
 <!--          <input type="text" placeholder="..." class="form-control" />-->
      <form action="index.php" method="POST">
-      <textarea placeholder="Type your question here..." class="form-control" style="height:125px; resize:none; margin-bottom:.5em; border-radius:2px;" name="qn"></textarea>            <input type="submit" onclick="" class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em;" value="Ask"></input>
+      <textarea placeholder="Type your question here..." class="form-control" style="height:125px; resize:none; margin-bottom:.5em; border-radius:2px;" name="qn"></textarea>            <input type="submit" onclick="cautionDiv()" class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em;" value="Ask"></input>
 
 
  <select name="ct" data-toggle="select" class="form-control select select-default mrs mbm" style="float:right;">
@@ -251,7 +271,7 @@ echo "<div class='bootstrap-tagsinput' style='width:20%; float:right;'>
     </script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!--    <script src="jquery-2.1.3.min.js"></script>-->
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
   </body>
