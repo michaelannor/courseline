@@ -36,7 +36,47 @@
 //        alert("dfg");
 	}
 	</script>
+   
+   <script>
+			function sendRequest(u){
+				// Send request to server
+				//u a url as a string
+				//async is type of request
+				var obj=$.ajax({url:u,async:false});
+//                alert(obj);
+				//Convert the JSON string to object
+				var result=$.parseJSON(obj.responseText);
+				return result;	//return object
+				
+			}
+			function ask(){
+                var qn = $("#qn").val() ;
+//                if (qn.length == 0){
+//                    qn = "";
+//                    alert ("kjne");
+//                }
+                    var tag = $("#ct option:selected").val() ;
+//                alert (qn + "" + tag);
+				var theUrl="ajax.php?cmd=1&qn="+qn+"&ct="+tag;
+				var obj=sendRequest(theUrl);		//send request to the above url
+				if(obj.result==1){					//check result
+                    toastr.info(obj.message);
+//                                                $('#emptydiv').text(<div>qn</div>);
+
+//					$("#divDesc").text(obj.desc);		//set div with the description from the result
+//					$("#divDesc").css("top",event.y);	//set the location of the div
+//					$("#divDesc").css("left",event.x);	
+//					$("#divDesc").show();				//show the div element
+				}else{
+                                        toastr.error(obj.message);
+
+					//show error message
+//					$("#divStatus").text("error while getting description");
+//					$("#divStatus").css("backgroundColor","red");
+				}
+			}
     
+    </script>
     
   </head>
   <body>
@@ -167,11 +207,13 @@
       
       <h6>Compose:</h6>
 <!--          <input type="text" placeholder="..." class="form-control" />-->
-     <form action="index.php" method="POST">
-      <textarea placeholder="Type your question here..." class="form-control" style="height:125px; resize:none; margin-bottom:.5em; border-radius:2px;" name="qn"></textarea>            <input type="submit" onclick="cautionDiv()" class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em;" value="Ask"></input>
+<!--     <form action="" method="POST">-->
+      <textarea placeholder="Type your question here..." class="form-control" style="height:125px; resize:none; margin-bottom:.5em; border-radius:2px;" name="qn" id="qn"> </textarea>            
+          
+          <input type="submit" onclick="ask()" class="btn btn-embossed btn-primary" style="float:right; width:7em; margin-left:.5em;" value="Ask"></input>
 
 
- <select name="ct" data-toggle="select" class="form-control select select-default mrs mbm" style="float:right;">
+ <select id="ct" name="ct" data-toggle="select" class="form-control select select-default mrs mbm" style="float:right;">
        <option value='0'>Select a Coursetag</option>
             <?php
 for ($i=1;$i<=count($course_array);$i++){
@@ -180,21 +222,8 @@ for ($i=1;$i<=count($course_array);$i++){
         ?>
 
       </select>    
-      </form>
-     <?php 
-			if (isset($_REQUEST["ct"]) ) {
-                if ($_REQUEST["qn"]!==""){
-                    if (!$_REQUEST["ct"]==0){
-                $qn_text=$_REQUEST['qn'];
-                        $cid = $_REQUEST["ct"];
-                include_once("questions.php");
-                $obj = new questions();
-                $uid=4;
-                $obj->add_question($qn_text, $cid, $uid);
-                    }
-                }
-            }
-          ?>
+<!--      </form>-->
+    
       <br>
       <br>
       <br>
@@ -207,6 +236,7 @@ for ($i=1;$i<=count($course_array);$i++){
           <div style="border-bottom:2px; border-bottom-style:solid; border-bottom-color:#bdc3c7;"></div>
 <br>
 -->
+         <div id="emptydiv"> </div>
           
                 <?php
                     include_once("questions.php");
